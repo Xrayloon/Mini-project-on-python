@@ -1,7 +1,7 @@
 TrueNumber = ''
 while TrueNumber != 7:
-    TrueNumber = input('Угадай число: ')
-    TrueNumber = int(TrueNumber)
+    TrueNumber = int(input('Угадай число: '))
+    
 
     if TrueNumber > 7:
         print('Меньше')
