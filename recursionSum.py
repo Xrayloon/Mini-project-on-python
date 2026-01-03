@@ -21,12 +21,12 @@ def recurSum(arr,start=0):
     return arr[start] + recurSum(arr,start + 1)
 
 # Напишите рекурсивную функцию для подсчета элементов в списке.
-# Время выполнение O(1)
+# Время выполнение O(n)
 def sumLen(arr):
     if len(arr) == 0:
         return 0
     else:
-        return len(arr)
+        return 1 + sumLen(arr[1:])
 
 
 
