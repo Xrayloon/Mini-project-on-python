@@ -1,3 +1,4 @@
+# Задание 4.1 Напишите код для функций sum
 def sum(arr):
     total = 0
     for x in arr:
@@ -18,6 +19,15 @@ def recurSum(arr,start=0):
     if start >= len(arr):
         return 0
     return arr[start] + recurSum(arr,start + 1)
+
+# Напишите рекурсивную функцию для подсчета элементов в списке.
+# Время выполнение O(1)
+def sumLen(arr):
+    if len(arr) == 0:
+        return 0
+    else:
+        return len(arr)
+
 
 
 
