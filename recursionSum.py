@@ -28,6 +28,15 @@ def sumLen(arr):
     else:
         return 1 + sumLen(arr[1:])
 
+def highNumberInList(arr):
+    if not arr :
+        return 0
+    if len(arr) == 1:
+        return arr[0]
+    return max(arr[0], highNumberInList(arr[1:]))
+
+print(highNumberInList([1,2,3,4]))
+
 
 
 
