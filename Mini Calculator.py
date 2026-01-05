@@ -1,6 +1,6 @@
-a = int(input()) 
-b = int(input())
-c = input()
+a = int(input('Первое число: ')) 
+b = int(input('Второе число: '))
+c = input('Тип операции (*, +, -, /): ')
 
 if c == '/' and b == 0:
     print('На ноль делить нельзя!')
