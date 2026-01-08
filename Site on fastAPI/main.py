@@ -5,7 +5,7 @@ from typing import Optional
 app = FastAPI(
     title="Сайт на FastAPi",
     description="Первое описание",
-    version="1.0.0"
+    version="1.0.1",
 )
 
 # 1. Модель данных (схема)
@@ -20,14 +20,19 @@ class UserUpdate(BaseModel):
     age: Optional[int] = None
 
 
-# 2. Наша "База данных"
+# 2. Наша "База данных" Хранится в ОЗУ и не сохраняет изменения после ребута
 users_db = [
     {"id": 1, "name": "Alice", "age": 25},
     {"id": 2, "name": "Bob", "age": 19},
     {"id": 3, "name": "Ivan", "age": 21},
     {"id": 4, "name": "Oleg", "age": 23},
-    {"id": 5, "name": "Oleg", "age": 23},
+    {"id": 5, "name": "Prihod", "age": 41},
 ]
+#Динамический URL через async
+@app.get("/users/{user_id}")
+async def read_user(user_id: int): # Добавили ': int'
+    return {"user_id": user_id,"type": str(type(user_id))}
+
 
 @app.get("/")
 def get_user(user_id: int):
@@ -47,6 +52,8 @@ def get_user(user_id: int):
             return user
         # Если не нашли - выдаем 404
     raise HTTPException(status_code=404, detail="User not found")
+
+
 
 
 @app.post("/users")
